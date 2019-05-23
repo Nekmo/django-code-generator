@@ -4,6 +4,9 @@ from pathlib import Path
 from django.db import models
 
 from django_code_generator.exceptions import DjangoCodeGeneratorError
+from django.template.loader import render_to_string
+
+from django_code_generator.models import get_models, Models
 
 if hasattr(models, 'get_apps'):
     def get_apps():
@@ -47,5 +50,6 @@ class Template:
             if node.is_dir():
                 os.makedirs(to_path, exist_ok=True)
             else:
+                rendered = render_to_string(str(node), {'models': Models(app)})
                 with open(to_path, 'w') as f:
-                    f.write('\n')
+                    f.write(rendered)

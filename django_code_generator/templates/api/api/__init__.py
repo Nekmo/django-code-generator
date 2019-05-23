@@ -1,4 +1,5 @@
-from rest_framework import viewsets
+from rest_framework import viewsets{% comment %}
+{% endcomment %}{% for model in models %}
 
 
 class {{ model.name }}ViewSet(viewsets.ModelViewSet):
@@ -8,4 +9,5 @@ class {{ model.name }}ViewSet(viewsets.ModelViewSet):
     serializer_class = {{ model.name }}Serializer
     search_fields = ()
     filter_fields = ()
-    ordering_fields = ()
+    ordering_fields = (){% comment %}
+{% endcomment %}{% endfor %}
