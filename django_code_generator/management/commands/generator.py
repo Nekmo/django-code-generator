@@ -1,4 +1,11 @@
+import os
+
 from django.core.management.base import BaseCommand, CommandError
+
+from django_code_generator.templates import Template
+
+
+directory = os.path.abspath(os.path.join(os.path.abspath(__file__), '../../../'))
 
 
 class Command(BaseCommand):
@@ -9,4 +16,5 @@ class Command(BaseCommand):
         parser.add_argument('app', type=str)
 
     def handle(self, *args, **options):
-        pass
+
+        Template(os.path.join(directory, 'templates/api'), options['app'])
