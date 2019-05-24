@@ -50,6 +50,6 @@ class Template:
             if node.is_dir():
                 os.makedirs(to_path, exist_ok=True)
             else:
-                rendered = render_to_string(str(node), {'models': Models(app)})
+                rendered = render_to_string(str(node), {'models': Models(app), 'app': app})
                 with open(to_path, 'w') as f:
                     f.write(rendered)

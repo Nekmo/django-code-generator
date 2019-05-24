@@ -15,6 +15,9 @@ class Model:
     def name(self):
         return self.model._meta.object_name
 
+    def __str__(self):
+        return self.name
+
 
 class Models(list):
     def __init__(self, app):
