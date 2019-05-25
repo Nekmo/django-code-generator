@@ -1,4 +1,5 @@
 from django.db.models.fields import CharField, TextField, IntegerField, DateField, AutoField
+from django.utils.text import camel_case_to_spaces
 
 try:
     from django.db.models.loading import get_models
@@ -45,6 +46,10 @@ class Model:
     def filter_field_names(self):
         return get_field_names(filter(lambda x: isinstance(x, FILTER_FIELDS),
                                       self.model._meta.concrete_fields))
+
+    @property
+    def snake_case_name(self):
+        return camel_case_to_spaces(self.name).replace(' ', '_')
 
     def __str__(self):
         return self.name
