@@ -17,4 +17,4 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
 
-        Template(os.path.join(directory, 'templates/api'), options['app'])
+        Template(os.path.join(directory, 'templates', options['template']), options['app'])
