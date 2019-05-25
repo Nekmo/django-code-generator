@@ -28,7 +28,8 @@ django-code-generator
      :alt: Requirements Status
 
 
-Generate code from Django models for faster development
+Generate code from Django models for faster development. This project can generate a Django Rest Framework API
+or an admin for your app. You can also **create your own templates** so you can generate code for whatever you want.
 
 
 To install django-code-generator, run this command in your terminal:
@@ -40,8 +41,45 @@ To install django-code-generator, run this command in your terminal:
 This is the preferred method to install django-code-generator, as it will always install the most recent stable release.
 
 
-Features
-========
+Then add it to your ``INSTALLED_APPS``:
 
-* TODO
+.. code-block:: python
 
+    INSTALLED_APPS = [
+        # ...
+        'django_code_generator',
+    ]
+
+
+Usage
+=====
+Generating code is as easy as::
+
+    $ python manage.py generate <template> <project app>
+
+This project includes two default templates: ``admin`` and ``api``. For example::
+
+    $ python manage.py generate admin myapp
+
+
+Create templates
+================
+There are several places to locate the directories of your templates. The templates will be loaded in this order:
+
+#. Template directories in ``DJANGO_CODE_GENERATOR_TEMPLATES`` environment variable. The directories are separated
+   by a colon char (``:``). For example: ``DJANGO_CODE_GENERATOR_TEMPLATES=/path/templates/``.
+#. Templates from the folder ``.dcg_templates/`` in the current directory.
+#. Template directories from ``DJANGO_CODE_GENERATOR_TEMPLATES = []`` list in your Django settings.
+#. Templates from folder ``.dcg_templates/`` in ``manage.py`` directory.
+#. Templates from ``~/.config/dcg_templates/`` directory.
+#. Templates from django_code_generator project
+
+To create the template, make a directory with the name of the template in the templates folder. For example:
+``~/.config/dcg_templates/mytemplate/``. When you use the command ``manage.py generate <template> <project app>``
+everything inside the template folder will be copied and rendered to the app folder in your Django project.
+
+For example, running ``manage.py generate mytemplate myapp`` the file ``~/.config/dcg_templates/mytemplate/admin.py``
+will be copied and rendered to ``myproject/myapp/admin.py``.
+
+Django Code Generate uses `Django Templates Syntax <https://docs.djangoproject.com/en/dev/topics/templates/>`_ for
+to render the templates. You can find examples in this project.
