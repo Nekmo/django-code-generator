@@ -6,7 +6,9 @@
 class {{ model.name }}Serializer(ModelSerializer):
     class Meta:
         model = {{ model.name }}
+        depth = 1
         fields = (
-            {% indent_items models 12 quote='simple' %}
-        ){% comment %}
+            {% indent_items model.field_names 12 quote='simple' %}
+        )
+        read_only_fields = (){% comment %}
 {% endcomment %}{% endfor %}

@@ -40,3 +40,8 @@ def indent_items(items, spaces, backslash=False, quote=False):
 @register.simple_tag
 def from_module_import(module, items):
     return mark_safe('from {} import {}'.format(module, indent_items(items, 4, True)))
+
+
+@register.filter(is_safe=True)
+def add_to_items(items, suffix):
+    return ['{}{}'.format(x, suffix) for x in items]
