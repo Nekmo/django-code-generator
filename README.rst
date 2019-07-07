@@ -55,11 +55,11 @@ Usage
 =====
 Generating code is as easy as::
 
-    $ python manage.py generate <template> <project app>
+    $ python manage.py generator <template> <project app>
 
 This project includes two default templates: ``admin`` and ``api``. For example::
 
-    $ python manage.py generate admin myapp
+    $ python manage.py generator admin myapp
 
 
 Create templates
