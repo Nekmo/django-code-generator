@@ -15,7 +15,7 @@ django-code-generator
   :target: https://pypi.org/project/django-code-generator/
   :alt: Python versions
 
-.. image:: https://img.shields.io/codeclimate/github/Nekmo/django-code-generator.svg?style=flat-square
+.. image:: https://img.shields.io/codeclimate/maintainability/Nekmo/django-code-generator.svg?style=flat-square
   :target: https://codeclimate.com/github/Nekmo/django-code-generator
   :alt: Code Climate
 
