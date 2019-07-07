@@ -7,7 +7,7 @@
 class {{ model.name }}Admin(admin.ModelAdmin):
     """
     """
-    list_displays = (
+    list_display = (
         {% indent_items model.filter_field_names 8 quote='simple' %}
     )
     search_fields = (
