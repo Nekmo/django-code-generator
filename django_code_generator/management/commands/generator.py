@@ -28,7 +28,7 @@ template_directories += [
 ]
 # Get templates from DJANGO_CODE_GENERATOR_TEMPLATES settings
 template_directories.extend(getattr(settings, 'DJANGO_CODE_GENERATOR_TEMPLATES', []))
-template_directories = [
+template_directories += [
     # Get templates from folder DOTTED_TEMPLATE_DIRECTORY in manage.py directory
     main_tpl_directory,
     # Get templates from .config/TEMPLATE_DIRECTORY in home directory
