@@ -45,3 +45,13 @@ def from_module_import(module, items):
 @register.filter(is_safe=True)
 def add_to_items(items, suffix):
     return ['{}{}'.format(x, suffix) for x in items]
+
+
+@register.filter(is_safe=True)
+def prefix_to_items(items, prefix):
+    return ['{}{}'.format(prefix, x) for x in items]
+
+
+@register.filter(is_safe=True)
+def suffix_to_items(items, suffix):
+    return ['{}{}'.format(x, suffix) for x in items]
