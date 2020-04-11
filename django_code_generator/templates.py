@@ -2,6 +2,7 @@ import os
 from pathlib import Path
 
 from django.db import models
+from django.template import Engine, Context
 
 from django_code_generator.exceptions import DjangoCodeGeneratorError, TemplateNotFound
 from django.template.loader import render_to_string
@@ -53,12 +54,16 @@ class Template:
 
     def render(self):
         path = Path(self.directory)
+        engine = Engine(debug=True, dirs=[self.directory], libraries={
+            'code_generator_tags': 'django_code_generator.templatetags.code_generator_tags'
+        })
         for node in walk(path):
             relative_path = relative(str(path), str(node))
             to_path = os.path.join(self.app.path, relative_path)
             if node.is_dir():
                 os.makedirs(to_path, exist_ok=True)
             else:
-                rendered = render_to_string(str(node), {'models': Models(self.app), 'app': self.app})
+                template = engine.get_template(str(node))
+                rendered = template.render(Context({'models': Models(self.app), 'app': self.app}))
                 with open(to_path, 'w') as f:
                     f.write(rendered)
