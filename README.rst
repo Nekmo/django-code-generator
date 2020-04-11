@@ -64,22 +64,35 @@ This project includes two default templates: ``admin`` and ``api``. For example:
 
 Create templates
 ================
-There are several places to locate the directories of your templates. The templates will be loaded in this order:
+A template is a directory with files that will be copied to the final path in your app.
+Template files can use `Django Templates Syntax <https://docs.djangoproject.com/en/dev/topics/templates/>`_. When
+templates are generated, the app models are available to be used with the django template syntax.
 
-#. Template directories in ``DJANGO_CODE_GENERATOR_TEMPLATES`` environment variable. The directories are separated
-   by a colon char (``:``). For example: ``DJANGO_CODE_GENERATOR_TEMPLATES=/path/templates/``.
-#. Templates from the folder ``.dcg_templates/`` in the current directory.
-#. Template directories from ``DJANGO_CODE_GENERATOR_TEMPLATES = []`` list in your Django settings.
-#. Templates from folder ``.dcg_templates/`` in ``manage.py`` directory.
-#. Templates from ``~/.config/dcg_templates/`` directory.
-#. Templates from django_code_generator project
+For example if you create the template *mytemplate* you can use it for your app *myapp^with the command::
 
-To create the template, make a directory with the name of the template in the templates folder. For example:
-``~/.config/dcg_templates/mytemplate/``. When you use the command ``manage.py generate <template> <project app>``
-everything inside the template folder will be copied and rendered to the app folder in your Django project.
+    $ python manage.py generate mytemplate myapp
 
-For example, running ``manage.py generate mytemplate myapp`` the file ``~/.config/dcg_templates/mytemplate/admin.py``
-will be copied and rendered to ``myproject/myapp/admin.py``.
+A template file example:
 
-Django Code Generate uses `Django Templates Syntax <https://docs.djangoproject.com/en/dev/topics/templates/>`_ for
-to render the templates. You can find examples in this project.
+.. code-block:: django
+
+    {%  load code_generator_tags %}from django.contrib import admin
+    {% from_module_import app.name|add:'.models' models %}{% comment %}
+    {% endcomment %}
+    {% for model in models %}
+
+    @admin.register({{ model.name }})
+    class {{ model.name }}Admin(admin.ModelAdmin):
+        """
+        """
+        list_display = (
+            {% indent_items model.filter_field_names 8 quote='simple' %}
+        )
+        search_fields = (
+            {% indent_items model.char_field_names 8 quote='simple' %}
+        )
+        {% if model.foreign_field_names %}autocomplete_fields = (
+            {% indent_items model.foreign_field_names 8 quote='simple' %}
+        ){% endif %}{% endfor %}
+
+For more information see `the docs<https://github.com/Nekmo/django-code-generator/blob/master/docs/templates.rst>`_.
