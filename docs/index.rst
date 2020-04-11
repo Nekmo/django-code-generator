@@ -6,6 +6,4 @@ Django Code Generator documentation
    :glob:
 
    readme
-
-..
-   _ modules
+   modules

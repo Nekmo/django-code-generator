@@ -28,7 +28,7 @@ import os
 # version is used.
 directory = os.path.dirname(os.path.abspath(__file__))
 
-# sys.path.append(os.path.abspath(os.path.join(directory, '../')))
+sys.path.append(os.path.abspath(os.path.join(directory, '../')))
 # os.environ['DJANGO_SETTINGS_MODULE'] = 'Django Code Generator.settings.develop'
 # django.setup()
 
@@ -45,6 +45,10 @@ extensions = [
     # 'sphinxcontrib.autohttp.drf',
     # 'sphinxcontrib_django',
 ]
+
+autodoc_member_order = 'bysource'
+add_module_names = False
+
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
