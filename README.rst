@@ -95,4 +95,4 @@ A template file example:
             {% indent_items model.foreign_field_names 8 quote='simple' %}
         ){% endif %}{% endfor %}
 
-For more information see `the docs<https://github.com/Nekmo/django-code-generator/blob/master/docs/templates.rst>`_.
+For more information see `the docs <https://github.com/Nekmo/django-code-generator/blob/master/docs/templates.rst>`_.
