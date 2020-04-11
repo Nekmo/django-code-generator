@@ -39,6 +39,8 @@ These variables are available during rendering:
   contains :class:`django_code_generator.models.Model` instances.
 * **app**: a `AppConfig <https://docs.djangoproject.com/en/3.0/ref/applications/#configurable-attributes>`_ instance.
 
+You can also use the included :ref:`template tags<code_generator_tags>`. To use the tags you must put
+at the beginning of the template ``{% load code_generator_tags %}``.
 
 
 Examples
