@@ -64,3 +64,4 @@ target/
 /.idea
 
 /demo_project
+/docs/_build/
