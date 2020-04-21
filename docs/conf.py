@@ -136,8 +136,16 @@ html_theme = os.environ.get('HTML_THEME', 'alabaster')
 # theme further.  For a list of options available for each theme, see the
 # documentation.
 html_theme_options = {
-    # 'logo': 'logo.png',
-    # 'description': 'Django Code Generator',
+    'logo': 'logo.png',
+    'description': 'Generate code from your Django models for faster development',
+    'github_user': 'Nekmo',
+    'github_repo': 'django-code-generator',
+    'github_type': 'star',
+    'github_banner': True,
+    'travis_button': True,
+    'codecov_button': True,
+    'analytics_id': 'UA-62276079-1',
+    'canonical_url': 'http://docs.nekmo.org/django-code-generator/'
 }
 
 

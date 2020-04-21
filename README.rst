@@ -39,7 +39,7 @@ To install django-code-generator, run this command in your terminal:
     $ sudo pip install django-code-generator
 
 This is the preferred method to install django-code-generator, as it will always install the most recent stable release.
-
+`More info in the documentation <https://docs.nekmo.org/django-code-generator/installation.html>`_
 
 Then add it to your ``INSTALLED_APPS``:
 
@@ -51,6 +51,7 @@ Then add it to your ``INSTALLED_APPS``:
     ]
 
 
+
 Usage
 =====
 Generating code is as easy as::
@@ -60,6 +61,8 @@ Generating code is as easy as::
 This project includes two default templates: ``admin`` and ``api``. For example::
 
     $ python manage.py generator admin myapp
+
+`Read the documentation <https://docs.nekmo.org/django-code-generator/readme.html#usage>`_ for more info.
 
 
 Create templates
@@ -76,7 +79,7 @@ A template file example:
 
 .. code-block:: django
 
-    {%  load code_generator_tags %}from django.contrib import admin
+    {% load code_generator_tags %}from django.contrib import admin
     {% from_module_import app.name|add:'.models' models %}{% comment %}
     {% endcomment %}
     {% for model in models %}
@@ -95,4 +98,4 @@ A template file example:
             {% indent_items model.foreign_field_names 8 quote='simple' %}
         ){% endif %}{% endfor %}
 
-For more information see `the docs <https://github.com/Nekmo/django-code-generator/blob/master/docs/templates.rst>`_.
+For more information see `the docs <https://docs.nekmo.org/django-code-generator/templates.html>`_.
