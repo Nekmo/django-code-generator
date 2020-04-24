@@ -3,33 +3,15 @@
 
 language: python
 python:
-  - 3.5
-  - 3.4
-  - 3.3
-  - 2.7
-  - 2.6
+  - 3.8
+script:
+  - pip install -r requirements.txt
+  - make dist
 
-# command to install dependencies, e.g. pip install -r requirements.txt --use-mirrors
-install:
-- if [[ $TRAVIS_PYTHON_VERSION == '2.7' ]]; then export PYVER=py27; fi
-- if [[ $TRAVIS_PYTHON_VERSION == '3.4' ]]; then export PYVER=py34; fi
-- if [[ $TRAVIS_PYTHON_VERSION == '3.5' ]]; then export PYVER=py35; fi
-- if [[ $TRAVIS_PYTHON_VERSION == '3.6' ]]; then export PYVER=py36; fi
-
-# command to run tests, e.g. python setup.py test
-script: COMMAND='coverage run' tox -e$PYVER
-after_success:
-- codecov
-
-# After you create the Github repo and add it to Travis, run the
-# travis_pypi_setup.py script to finish PyPI deployment setup
 deploy:
-  provider: pypi
-  distributions: sdist bdist_wheel
-  user: nekmo
-  password:
-    secure: PLEASE_REPLACE_ME
-  on:
-    tags: true
-    repo: Nekmo/django_code_generator
-    python: 2.7
+  - provider: pypi
+    user: __token__
+    password:
+      secure: "dxeuyg0YM+Pq815v0Acof9T9MTrmwY6xB69s66+ci3bhY22f7/r6xHHV7b3H9l6h8jdO5rBQ2zNHwsrE4GWdgnpkpro9Um7obbNDiMCi4pcQsFBteFmp5jJWfc1d9brwuQRD3oE6goApyj+G1LldGEyDiHzeMG3mH8XwPEZBBBY4WhKg38OArk2wazRlxQoBhwo+vVD13H9qFskLkq8KprTBu26CKlwUq+v6l9uZfapBLmSVLpDdsY1Nn6lN2PO3B1ju8oM9oDAdUzy9xuwG6xsFFg5OD56eG94P2LjWklMxf1HUB/PdJMAooZgjT9oRPPpRGOaW3BtJRgbETW/af/OmJ5pHp7CHyy4IBfNUf8zdQzVUA156CANwluxbW8YAc+Xw6Wt/BUJ3l5o4uSjQpYuQ8IPUC4QQYOnYh3gT1RQ5mZDwVcSucuI/KmT6HZvS+jlcEneCmevO5vJXFwfi8xW9o2qs7T8/N5wn0RVt0Cauvi/Sh+eGIvjvcFyfRYjVkOBWvnQ402JPod+dyzNs5+H7x5NRSrsVS2Ijc07douo2yHJ1dIcxV1+iAuqpTsm8GduLDlhrFBfSmShUTSyrd+VUSoV5IQwbEOWQy6PLItXg93E1XlOsJ/yToi6a/+Tz9fDVuaoi92S7ITJfAI/c+epmgsXkDy1rv6kfSAfnHMw="
+    on:
+      tags: true
