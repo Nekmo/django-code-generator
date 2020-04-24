@@ -11,7 +11,8 @@ History
 * Issue #1: Templates docs
 * Issue #2: Installation docs
 * Issue #3: Docs website
-
+* Issue #6: Python 3.8 support Nekmo 25/4/20 1:20
+* Issue #5: Upload to Pypi using Travis CI Nekmo 25/4/20 1:17
 
 0.2.1 (2019-06-06)
 ------------------
