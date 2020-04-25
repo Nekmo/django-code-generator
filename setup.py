@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-"""Generate code from Django models for faster development
-"""
+"""Generate code from Django models for faster development"""
 import copy
 import os
 import glob

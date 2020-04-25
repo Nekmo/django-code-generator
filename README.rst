@@ -2,30 +2,29 @@
 django-code-generator
 #####################
 
-
 .. image:: https://img.shields.io/travis/Nekmo/django-code-generator.svg?style=flat-square&maxAge=2592000
-  :target: https://travis-ci.org/Nekmo/django-code-generator
-  :alt: Latest Travis CI build status
+    :target: https://travis-ci.org/Nekmo/django-code-generator
+    :alt: Latest Travis CI build status
 
 .. image:: https://img.shields.io/pypi/v/django-code-generator.svg?style=flat-square
-  :target: https://pypi.org/project/django-code-generator/
-  :alt: Latest PyPI version
+    :target: https://pypi.org/project/django-code-generator/
+    :alt: Latest PyPI version
 
 .. image:: https://img.shields.io/pypi/pyversions/django-code-generator.svg?style=flat-square
-  :target: https://pypi.org/project/django-code-generator/
-  :alt: Python versions
+    :target: https://pypi.org/project/django-code-generator/
+    :alt: Python versions
 
 .. image:: https://img.shields.io/codeclimate/maintainability/Nekmo/django-code-generator.svg?style=flat-square
-  :target: https://codeclimate.com/github/Nekmo/django-code-generator
-  :alt: Code Climate
+    :target: https://codeclimate.com/github/Nekmo/django-code-generator
+    :alt: Code Climate
 
 .. image:: https://img.shields.io/codecov/c/github/Nekmo/django-code-generator/master.svg?style=flat-square
-  :target: https://codecov.io/github/Nekmo/django-code-generator
-  :alt: Test coverage
+    :target: https://codecov.io/github/Nekmo/django-code-generator
+    :alt: Test coverage
 
 .. image:: https://img.shields.io/requires/github/Nekmo/django-code-generator.svg?style=flat-square
-     :target: https://requires.io/github/Nekmo/django-code-generator/requirements/?branch=master
-     :alt: Requirements Status
+    :target: https://requires.io/github/Nekmo/django-code-generator/requirements/?branch=master
+    :alt: Requirements Status
 
 
 Generate code from Django models for faster development. This project can generate a Django Rest Framework API
@@ -71,7 +70,7 @@ A template is a directory with files that will be copied to the final path in yo
 Template files can use `Django Templates Syntax <https://docs.djangoproject.com/en/dev/topics/templates/>`_. When
 templates are generated, the app models are available to be used with the django template syntax.
 
-For example if you create the template *mytemplate* you can use it for your app *myapp^with the command::
+For example if you create the template *mytemplate* you can use it for your app *myapp* with the command::
 
     $ python manage.py generate mytemplate myapp
 
