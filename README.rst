@@ -2,9 +2,9 @@
 django-code-generator
 #####################
 
-.. image:: https://img.shields.io/travis/Nekmo/django-code-generator.svg?style=flat-square&maxAge=2592000
-    :target: https://travis-ci.org/Nekmo/django-code-generator
-    :alt: Latest Travis CI build status
+.. image:: https://img.shields.io/github/workflow/status/Nekmo/django-code-generator/Publish.svg?style=flat-square&maxAge=2592000
+  :target: https://github.com/Nekmo/django-code-generator/actions?query=workflow%3APublish
+  :alt: Latest Publish CI build status
 
 .. image:: https://img.shields.io/pypi/v/django-code-generator.svg?style=flat-square
     :target: https://pypi.org/project/django-code-generator/
